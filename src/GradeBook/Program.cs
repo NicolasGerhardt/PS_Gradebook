@@ -24,15 +24,17 @@ namespace GradeBook
 
             Console.WriteLine($"x + y = {result}");
 
-            var numbers = new double[3];
-            numbers[0] = 456.4;
-            numbers[1] = 398.33;
-            numbers[2] = 654.9;
+            var numbers = new[] {56.4, 98.33, 24.9};
+            result = 0.0;
 
-            result = numbers[0] + numbers[1] + numbers[2];
+            foreach (var number in numbers)
+            {
+                result += number;
+            }
 
-            System.Console.WriteLine($"The sum of 3 numbers = {result}");
+            System.Console.WriteLine($"The sum of {numbers.Length} numbers = {result}");
             
+
 
         }
     }
