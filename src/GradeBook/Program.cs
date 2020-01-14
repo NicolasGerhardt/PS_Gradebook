@@ -7,10 +7,12 @@ namespace GradeBook
         static void Main(string[] args )
         {
             string output;
-            if (args.Length == 0) 
+            if (args.Length == 0)
             {
                 output = "Nobody";
-            } else {
+            }
+            else
+            {
                 output = args[0];
             }
 
