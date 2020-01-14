@@ -4,16 +4,23 @@ namespace GradeBook
 {
     class GradeBook
     {
-        List<double> grades;
+        private List<double> grades;
+        private string name;
 
-        public GradeBook()
+        public GradeBook(string name)
         {
             grades = new List<double>();
+            this.name = name;
         }
 
         public void AddGrade(double grade)
         {
             grades.Add(grade);
+        }
+
+        public double getAverageGrades()
+        {
+            return 0.0;
         }
 
     }
