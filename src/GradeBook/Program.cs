@@ -17,6 +17,12 @@ namespace GradeBook
             }
 
             Console.WriteLine($"Hello, {output}!");
+
+            double x = 42.1;
+            double y = 10.3;
+            var result = x + y;
+
+            Console.WriteLine($"x + y = {result}");
         }
     }
 }
