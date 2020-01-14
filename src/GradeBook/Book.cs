@@ -19,7 +19,18 @@ namespace GradeBook
             grades.Add(grade);
         }
 
-        public double calcAverageGrade()
+        public void ShowStatistics()
+        {
+            var high = this.findHighestGrade();
+            var low = this.findLowestGrade();
+            var ave = this.calcAverageGrade();
+
+            Console.WriteLine($"The highest grade is {high:N2}.");
+            Console.WriteLine($"The lowest grade is {low:N2}.");
+            Console.WriteLine($"The average grade is {ave:N2}.");
+        }
+
+        private double calcAverageGrade()
         {
             var TotalOfGrades = 0.0;
 
@@ -31,7 +42,7 @@ namespace GradeBook
             return TotalOfGrades / grades.Count;
         }
 
-        public double  findHighestGrade()
+        private double  findHighestGrade()
         {
             var highGrade = double.MinValue;
             foreach (var grade in grades)
@@ -43,7 +54,7 @@ namespace GradeBook
             return highGrade;
         }
 
-        public double  findLowestGrade()
+        private double  findLowestGrade()
         {
             var lowGrade = double.MaxValue;
             foreach (var grade in grades)
