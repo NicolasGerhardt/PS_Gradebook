@@ -19,15 +19,14 @@ namespace GradeBook
             grades.Add(grade);
         }
 
-        public void ShowStatistics()
+        public Statistics GetStatistics()
         {
-            var high = this.findHighestGrade();
-            var low = this.findLowestGrade();
-            var ave = this.calcAverageGrade();
+            var result = new Statistics();
+            result.High = this.findHighestGrade();
+            result.Low = this.findLowestGrade();
+            result.Average = this.calcAverageGrade();
 
-            Console.WriteLine($"The highest grade is {high:N2}.");
-            Console.WriteLine($"The lowest grade is {low:N2}.");
-            Console.WriteLine($"The average grade is {ave:N2}.");
+            return result;
         }
 
         private double calcAverageGrade()

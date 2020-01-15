@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\git\\gradebook\\test\\Gradebook.Tests\\Gradebook.Tests.csproj": {}
+    "C:\\git\\gradebook\\test\\GradeBook.Tests\\GradeBook.Tests.csproj": {}
   },
   "projects": {
-    "C:\\git\\gradebook\\test\\Gradebook.Tests\\Gradebook.Tests.csproj": {
+    "C:\\git\\gradebook\\src\\GradeBook\\GradeBook.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\git\\gradebook\\test\\Gradebook.Tests\\Gradebook.Tests.csproj",
-        "projectName": "Gradebook.Tests",
-        "projectPath": "C:\\git\\gradebook\\test\\Gradebook.Tests\\Gradebook.Tests.csproj",
+        "projectUniqueName": "C:\\git\\gradebook\\src\\GradeBook\\GradeBook.csproj",
+        "projectName": "GradeBook",
+        "projectPath": "C:\\git\\gradebook\\src\\GradeBook\\GradeBook.csproj",
         "packagesPath": "C:\\Users\\Ngerhardt1\\.nuget\\packages\\",
-        "outputPath": "C:\\git\\gradebook\\test\\Gradebook.Tests\\obj\\",
+        "outputPath": "C:\\git\\gradebook\\src\\GradeBook\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -28,6 +28,60 @@
         "frameworks": {
           "netcoreapp2.2": {
             "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.2": {
+          "dependencies": {
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    },
+    "C:\\git\\gradebook\\test\\GradeBook.Tests\\GradeBook.Tests.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\git\\gradebook\\test\\GradeBook.Tests\\GradeBook.Tests.csproj",
+        "projectName": "GradeBook.Tests",
+        "projectPath": "C:\\git\\gradebook\\test\\GradeBook.Tests\\GradeBook.Tests.csproj",
+        "packagesPath": "C:\\Users\\Ngerhardt1\\.nuget\\packages\\",
+        "outputPath": "C:\\git\\gradebook\\test\\GradeBook.Tests\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Ngerhardt1\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.2"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.2": {
+            "projectReferences": {
+              "C:\\git\\gradebook\\src\\GradeBook\\GradeBook.csproj": {
+                "projectPath": "C:\\git\\gradebook\\src\\GradeBook\\GradeBook.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
