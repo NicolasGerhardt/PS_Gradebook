@@ -92,14 +92,6 @@ namespace GradeBook
                     AddGrade(60);
                     break;
 
-                case 'E':
-                    AddGrade(50);
-                    break;
-                    
-                case 'F':
-                    AddGrade(40);
-                    break;
-                    
                 default:
                     AddGrade(0);
                     break;
