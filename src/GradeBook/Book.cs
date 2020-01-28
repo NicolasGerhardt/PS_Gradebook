@@ -17,40 +17,50 @@ namespace GradeBook
         internal void getUserInput()
         {
             var keepGettingInput = true;
-            int quitReminderPromptCounter = 0;
             System.Console.WriteLine($"Please enter desired grades in {this.Name}");
+
             while (keepGettingInput)
             {
-                Console.Write("Enter a number Grade: ");
-                var rawUserInput = Console.ReadLine();
-                var isGrade = double.TryParse(rawUserInput, out double grade);
+                var validInput = false;
+                double grade = -1.0;
+                do
+                {
+                    Console.Write("Enter a number Grade (or q to quit): ");
+                    var rawUserInput = Console.ReadLine();
+                    try
+                    {
+                        grade = double.Parse(rawUserInput);
+                    }
+                    catch (FormatException e)
+                    {
+                        if (rawUserInput.ToLower() == "q")
+                        {
+                            keepGettingInput = false;
+                        }
+                        else
+                        {
+                            System.Console.WriteLine($"ERROR: {e.Message}");
+                            continue;
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        System.Console.WriteLine($"ERROR: {e.Message}");
+                        continue;
+                    }
+                    validInput = true;
 
-                if (!isGrade && rawUserInput.ToLower()[0] == 'q')
-                {
-                    keepGettingInput = false;
-                }
-                else if (!isGrade)
-                {
-                    System.Console.WriteLine("ERROR: input not recognized as a letter.");
-                }
-                else if (isGrade && (grade > 100 || grade < 0))
-                {
-                    System.Console.WriteLine("ERROR: value is either too high or too low.");
-                }
-                else
+                } while (!validInput);
+
+                try
                 {
                     this.AddGrade(grade);
-                    System.Console.WriteLine($"Entered grade of {grade:N1}");
                 }
-
-                if (keepGettingInput && quitReminderPromptCounter % 10 == 0)
+                catch (System.Exception e)
                 {
-                    System.Console.WriteLine("You can exit at any time by entering \'q\'.");
+                    System.Console.WriteLine(e.Message);
                 }
-                else
-                {
-                    quitReminderPromptCounter++;
-                }
+                
 
             }
 
@@ -64,7 +74,7 @@ namespace GradeBook
             }
             else
             {
-                Console.WriteLine("invalid value");
+                throw new ArgumentException($"ERROR: Invalid {nameof(grade)}");
             }
         }
 
