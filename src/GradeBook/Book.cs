@@ -32,8 +32,27 @@ namespace GradeBook
             result.High = this.findHighestGrade();
             result.Low = this.findLowestGrade();
             result.Average = this.calcAverageGrade();
+            result.Letter = this.calcLetterGrade(result.Average);
+            
 
             return result;
+        }
+
+        private char calcLetterGrade(double average)
+        {
+            switch (average)
+            {
+                case var x when x >= 90.0:
+                    return 'A';
+                case var x when x >= 80.0:
+                    return 'B';
+                case var x when x >= 70.0:
+                    return 'C';
+                case var x when x >= 60.0:
+                    return 'D';
+                default:
+                    return 'F';
+            }
         }
 
         private double calcAverageGrade()
