@@ -8,9 +8,9 @@ namespace GradeBook
         {
             var book = new Book("Nic's Gradebook");
 
-            book.AddGrade(89.1);
-            book.AddGrade(98.5);
-            book.AddGrade(77.5);
+            book.getUserInput();
+
+
             var stats = book.GetStatistics();
 
             Console.WriteLine($"The highest grade is {stats.High:N2}.");

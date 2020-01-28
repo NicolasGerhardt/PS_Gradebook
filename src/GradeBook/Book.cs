@@ -14,15 +14,57 @@ namespace GradeBook
             Name = name;
         }
 
+        internal void getUserInput()
+        {
+            var keepGettingInput = true;
+            int quitReminderPromptCounter = 0;
+            System.Console.WriteLine($"Please enter desired grades in {this.Name}");
+            while (keepGettingInput)
+            {
+                Console.Write("Enter a number Grade: ");
+                var rawUserInput = Console.ReadLine();
+                var isGrade = double.TryParse(rawUserInput, out double grade);
+
+                if (!isGrade && rawUserInput.ToLower()[0] == 'q')
+                {
+                    keepGettingInput = false;
+                }
+                else if (!isGrade)
+                {
+                    System.Console.WriteLine("ERROR: input not recognized as a letter.");
+                }
+                else if (isGrade && (grade > 100 || grade < 0))
+                {
+                    System.Console.WriteLine("ERROR: value is either too high or too low.");
+                }
+                else
+                {
+                    this.AddGrade(grade);
+                    System.Console.WriteLine($"Entered grade of {grade:N1}");
+                }
+
+                if (keepGettingInput && quitReminderPromptCounter % 10 == 0)
+                {
+                    System.Console.WriteLine("You can exit at any time by entering \'q\'.");
+                }
+                else
+                {
+                    quitReminderPromptCounter++;
+                }
+
+            }
+
+        }
+
         public void AddGrade(double grade)
         {
             if (grade <= 100 && grade >= 0)
             {
-                grades.Add(grade);    
+                grades.Add(grade);
             }
             else
             {
-                System.Console.WriteLine("invalid value");
+                Console.WriteLine("invalid value");
             }
         }
 
@@ -33,7 +75,7 @@ namespace GradeBook
             result.Low = this.findLowestGrade();
             result.Average = this.calcAverageGrade();
             result.Letter = this.calcLetterGrade(result.Average);
-            
+
 
             return result;
         }
@@ -67,25 +109,25 @@ namespace GradeBook
             return TotalOfGrades / grades.Count;
         }
 
-        private double  findHighestGrade()
+        private double findHighestGrade()
         {
             var highGrade = double.MinValue;
             foreach (var grade in grades)
             {
                 highGrade = Math.Max(grade, highGrade);
-            } 
+            }
 
 
             return highGrade;
         }
 
-        private double  findLowestGrade()
+        private double findLowestGrade()
         {
             var lowGrade = double.MaxValue;
             foreach (var grade in grades)
             {
                 lowGrade = Math.Min(grade, lowGrade);
-            } 
+            }
 
 
             return lowGrade;
